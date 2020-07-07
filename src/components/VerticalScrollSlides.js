@@ -77,14 +77,20 @@ class VerticalScrollSlides extends React.Component {
           }
           if (innerScrollSectionTopToTop <= paddingTop && innerScrollSectionTopToTop > 0) {
             const opacity = (paddingTop - innerScrollSectionTopToTop) / paddingTop;
+            const scaleValue = 1.2 - (opacity) * 0.2;
             node.firstElementChild.style.opacity = opacity;
+            node.firstElementChild.style.transform = `scale(${scaleValue})`;
           } else if (sectionDistanceBottomToTop <= paddingBottom && sectionDistanceBottomToTop >= 0) {
             const opacity = 1 - ((paddingBottom - sectionDistanceBottomToTop) / paddingBottom);
+            // const scaleValue = 1.2 - (opacity) * 0.2;
             node.firstElementChild.style.opacity = opacity;
+            // node.firstElementChild.style.transform = `scale(${scaleValue})`;
           } else if (innerScrollSectionBottomToTop >= 0 && innerScrollSectionTopToTop <=0) {
             node.firstElementChild.style.opacity = 1;
+            node.firstElementChild.style.transform = `scale(1)`;
           } else if (sectionDistanceBottomToTop <= 0 || sectionDistanceTopToTop >= 0) {
             node.firstElementChild.style.opacity = 0;
+            // node.firstElementChild.style.transform = `scale(1.2)`;
           }
         }
       }

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import VerticalScrollSlides from './components/VerticalScrollSlides';
+import FadeInHOC from './components/FadeInHOC';
 import { vssData } from './editor/text';
 
 const GlobalStyle = createGlobalStyle`
@@ -16,6 +17,13 @@ const Fake = styled.div`
   border: 1px solid blue;
 `;
 
+const FakeFadeInContent = styled.div`
+  background-color: red;
+  margin: 50px auto;
+  border: 1px solid green;
+  height: 600px;
+`;
+
 function App() {
   return (
     <div>
@@ -24,6 +32,10 @@ function App() {
         data={vssData}
       />
       <Fake/>
+      <Fake/>
+      <FadeInHOC>
+        <FakeFadeInContent />
+      </FadeInHOC>
       <GlobalStyle />
     </div>
   );
