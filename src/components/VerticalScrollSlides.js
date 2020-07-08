@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import config from '../config';
+
+const { textMaxWidth } = config;
 
 function createMarkup(content) {
   return {__html: `${content}`};
@@ -30,6 +33,8 @@ const InnerScrollSection = styled.div`
   z-index: 2;
   text-align: center;
   padding: 40px;
+  margin: 0 auto;
+  max-width: ${textMaxWidth}px;
 `;
 
 const Background = styled.div`
