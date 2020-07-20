@@ -12,6 +12,7 @@ const breakpoints = {
 const config = {
   textMaxWidth: '600',
   breakpoints,
+  cdnUrlBase: 'https://d3prffu8f9hpuw.cloudfront.net/revenge-porn',
 }
 
 export default config;

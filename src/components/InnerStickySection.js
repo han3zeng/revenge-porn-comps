@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { getRandomInt, weightedRandomInt, getDimension } from '../utils';
 import _debounce from 'lodash/debounce';
+import { SectionOne } from '../editor/text';
 
 const _ = {
   debounce: _debounce,
@@ -180,6 +181,10 @@ class InnerStickySection extends Component {
     })();
     for(let i = 0 ; i < maxNumber ; i++) {
       // const randomNumber = getRandomInt(6);
+      const imgUrl = (() => {
+        const target = i % SectionOne.imgs.length;
+        return SectionOne.imgs[target];
+      })();
       const Spec = {
         0: shredConfigs[0].weight,
         1: shredConfigs[1].weight,
@@ -204,11 +209,15 @@ class InnerStickySection extends Component {
           style={{
             width: `${shredConfig.width}px`,
             height: `${shredConfig.height}px`,
-            backgroundColor: shredConfig.backgroundColor,
             top: `${positionTop/viewportHeight * 100}%`,
             left: `${positionLeft/(viewportWidth + 5) * 100}%`,
           }}
-        />
+        >
+          <img
+            src={imgUrl}
+            alt={imgUrl}
+          />
+        </Shred>
       ));
     }
     return result;
