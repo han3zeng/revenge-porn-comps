@@ -1,6 +1,8 @@
 import React from 'react';
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { fadeInOpacity } from '../utils/animations';
+import config from '../config';
+const { breakpoints } = config;
 
 const imageWidth = 110;
 const imageHeight = 164;
@@ -10,6 +12,9 @@ const Container = styled.div`
   position: relative;
   opacity: 0;
   animation: ${props => props.fadeIn ? css`${fadeInOpacity} 0.3s linear forwards` : 'none'};
+  @media(max-width: ${breakpoints.maxTablet}px) {
+    display: none;
+  }
 `;
 
 const ImageWrapperBase = styled.div`
@@ -25,7 +30,7 @@ const ImageWrapperBase = styled.div`
 `
 
 const ImageRight = styled(ImageWrapperBase)`
-  right: -${gap + imageWidth}px;
+  right: -${imageWidth}px;
 `;
 
 const ImageLeft = styled(ImageWrapperBase)`

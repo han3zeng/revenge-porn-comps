@@ -26,7 +26,7 @@ const InnerFixedSection = styled.div`
   bottom: 0;
   opacity: 0;
   display: none;
-`
+`;
 
 const InnerScrollSection = styled.div`
   position: relative;

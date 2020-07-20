@@ -4,6 +4,7 @@ import VerticalScrollSlides from './components/VerticalScrollSlides';
 import FadeInHOC from './components/FadeInHOC';
 import SidePicture from './components/SidePicture';
 import { vssData } from './editor/text';
+import Landing from './components/Landing';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -37,6 +38,7 @@ const FakeWrapper = styled.div`
 function App() {
   return (
     <div>
+      <Landing />
       <Fake />
       <VerticalScrollSlides
         data={vssData}
