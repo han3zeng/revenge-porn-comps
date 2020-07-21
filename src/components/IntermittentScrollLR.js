@@ -1,5 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
+import config from '../config';
+
+const { breakpoints } = config;
 
 function createMarkup(content) {
   return {__html: `${content}`};
@@ -38,6 +41,13 @@ const ImageWrapper = styled.div`
     height: 100%;
     object-fit: cover;
   }
+  @media(max-width: ${breakpoints.maxTablet}px) {
+    width: 100%;
+    height: 375px;
+    top: 0;
+    left: 0;
+    transform: initial;
+  }
 `;
 
 const InnerScrollSection = styled.div`
@@ -48,6 +58,11 @@ const InnerScrollSection = styled.div`
   padding: 16px;
   max-width: 400px;
   left: calc(50% - ${intersectionInterval}px);
+  @media(max-width: ${breakpoints.maxTablet}px) {
+    width: 85%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 `;
 
 // <ImageWrapper>
