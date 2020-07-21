@@ -1,20 +1,19 @@
-import React from 'react';
+import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
-import config from '../config';
-
-const { textMaxWidth } = config;
 
 function createMarkup(content) {
   return {__html: `${content}`};
 }
 
+const intersectionInterval = 50;
+
 const Container = styled.div`
-  box-sizing: border-box;
+  background-color: ${props => props.theme.purpleBase};
+  position: relative;
 `;
 
 const Section = styled.section`
-  background-color: black;
-  color: white;
+  background-color: ${props => props.theme.purpleBase};
 `;
 
 const InnerFixedSection = styled.div`
@@ -27,33 +26,40 @@ const InnerFixedSection = styled.div`
   display: none;
 `;
 
+const ImageWrapper = styled.div`
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  top: 50%;
+  left: calc(50% + ${intersectionInterval}px);
+  transform: translate(-100%, -50%);
+  > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;
+
 const InnerScrollSection = styled.div`
   position: relative;
+  background: rgba(242, 242, 242, 0.85);
   z-index: 2;
   text-align: center;
-  padding: 40px;
-  margin: 0 auto;
-  max-width: ${textMaxWidth}px;
+  padding: 16px;
+  max-width: 400px;
+  left: calc(50% - ${intersectionInterval}px);
 `;
 
-const Background = styled.div`
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  background-image: url("${props => props.imageUrl}");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-`;
+// <ImageWrapper>
+// </ImageWrapper>
 
-class VerticalScrollSlides extends React.Component {
+
+class IntermittentScrollLR extends Component {
   constructor(props) {
     super(props);
     this.container = null;
-    this.scrollHandler = this._scrollHandler.bind(this);
     this.sections = [];
+    this.scrollHandler = this._scrollHandler.bind(this);
     this.currentScrollTop = 0;
   }
 
@@ -79,20 +85,14 @@ class VerticalScrollSlides extends React.Component {
       }
       if (innerScrollSectionTopToTop <= paddingTop && innerScrollSectionTopToTop > 0) {
         const opacity = (paddingTop - innerScrollSectionTopToTop) / paddingTop;
-        const scaleValue = 1.2 - (opacity) * 0.2;
         node.firstElementChild.style.opacity = opacity;
-        node.firstElementChild.style.transform = `scale(${scaleValue})`;
       } else if (sectionDistanceBottomToTop <= paddingBottom && sectionDistanceBottomToTop >= 0) {
         const opacity = 1 - ((paddingBottom - sectionDistanceBottomToTop) / paddingBottom);
-        // const scaleValue = 1.2 - (opacity) * 0.2;
         node.firstElementChild.style.opacity = opacity;
-        // node.firstElementChild.style.transform = `scale(${scaleValue})`;
       } else if (innerScrollSectionBottomToTop >= 0 && innerScrollSectionTopToTop <=0) {
         node.firstElementChild.style.opacity = 1;
-        node.firstElementChild.style.transform = `scale(1)`;
       } else if (sectionDistanceBottomToTop <= 0 || sectionDistanceTopToTop >= 0) {
         node.firstElementChild.style.opacity = 0;
-        // node.firstElementChild.style.transform = `scale(1.2)`;
       }
     });
     this.currentScrollTop = window.scrollY;
@@ -109,20 +109,23 @@ class VerticalScrollSlides extends React.Component {
         <Section
           id={id}
           key={id}
-          style={{
-            paddingTop: `${window.innerHeight}px`,
-            paddingBottom: `${Math.ceil(window.innerHeight/2)}px`
-          }}
           ref={(node) => {
             if (node) {
               this.sections.push(node);
             }
           }}
+          style={{
+            paddingTop: `${window.innerHeight}px`,
+            paddingBottom: `${Math.ceil(window.innerHeight/2)}px`
+          }}
         >
           <InnerFixedSection>
-            <Background
-              imageUrl={imageUrl}
-            />
+            <ImageWrapper>
+              <img
+                src={imageUrl}
+                alt={imageUrl}
+              />
+            </ImageWrapper>
           </InnerFixedSection>
           <InnerScrollSection
             dangerouslySetInnerHTML={createMarkup(text)}
@@ -134,11 +137,17 @@ class VerticalScrollSlides extends React.Component {
 
   render() {
     return (
-      <Container>
+      <Container
+        ref={node => {
+          if(node && !this.container) {
+            this.container = node;
+          }
+        }}
+      >
         {this._renderSections()}
       </Container>
-    )
+    );
   }
 }
 
-export default VerticalScrollSlides;
+export default IntermittentScrollLR;

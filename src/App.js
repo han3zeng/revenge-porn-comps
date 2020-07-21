@@ -1,15 +1,16 @@
-import React from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import React, { Fragment } from 'react';
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import VerticalScrollSlides from './components/VerticalScrollSlides';
 import FadeInHOC from './components/FadeInHOC';
 import SidePicture from './components/SidePicture';
-import { vssData } from './editor/text';
+import { vssData, ISLRData } from './editor/text';
 import Landing from './components/Landing';
+import IntermittentScrollLR from './components/IntermittentScrollLR';
 
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
-    background-color: black;
+    background-color: ${props => props.theme.purpleBase};
   }
 `;
 
@@ -35,41 +36,53 @@ const FakeWrapper = styled.div`
   color: white;
 `;
 
+const theme = {
+  purpleBase: '#1A183F',
+  fontFamily: '"Noto Sans TC", sans-serif',
+};
+
 function App() {
   return (
-    <div>
-      <Landing />
-      <Fake />
-      <VerticalScrollSlides
-        data={vssData}
-      />
-      <Fake />
-      <Fake />
-      <FadeInHOC>
-        <FakeFadeInContent />
-      </FadeInHOC>
-      <Fake />
-      <FakeWrapper>
-        <div>
-          qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf
-        </div>
-        <SidePicture
-          type="right"
-          imgUrl="https://d3prffu8f9hpuw.cloudfront.net/revenge-porn/test-cover-01.jpg"
-          caption="this is testing caption"
+    <Fragment>
+      <ThemeProvider
+        theme={theme}
+      >
+        <Landing />
+        <IntermittentScrollLR
+          data={ISLRData}
         />
-        <div>
-          qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf
-        </div>
-        <SidePicture
-          type="left"
-          imgUrl="https://d3prffu8f9hpuw.cloudfront.net/revenge-porn/test-cover-02.jpeg"
-          caption="this is testing caption"
+        <Fake />
+        <VerticalScrollSlides
+          data={vssData}
         />
-      </FakeWrapper>
-      <Fake />
-      <GlobalStyle />
-    </div>
+        <Fake />
+        <Fake />
+        <FadeInHOC>
+          <FakeFadeInContent />
+        </FadeInHOC>
+        <Fake />
+        <FakeWrapper>
+          <div>
+            qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf
+          </div>
+          <SidePicture
+            type="right"
+            imgUrl="https://d3prffu8f9hpuw.cloudfront.net/revenge-porn/test-cover-01.jpg"
+            caption="this is testing caption"
+          />
+          <div>
+            qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf
+          </div>
+          <SidePicture
+            type="left"
+            imgUrl="https://d3prffu8f9hpuw.cloudfront.net/revenge-porn/test-cover-02.jpeg"
+            caption="this is testing caption"
+          />
+        </FakeWrapper>
+        <Fake />
+        <GlobalStyle />
+      </ThemeProvider>
+    </Fragment>
   );
 }
 
