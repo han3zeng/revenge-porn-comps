@@ -10,6 +10,10 @@ function createMarkup(content) {
 
 const intersectionInterval = 50;
 
+const PaddingContainer = styled.div`
+  padding-bottom: 50vh;
+`;
+
 const Container = styled.div`
   background-color: ${props => props.theme.purpleBase};
   position: relative;
@@ -95,19 +99,23 @@ class IntermittentScrollLR extends Component {
       const paddingTop = parseInt(node.style.paddingTop, 10);
       const paddingBottom = parseInt(node.style.paddingBottom, 10);
       const fixedSectionDisplay = node.firstElementChild.style.display;
-      if (sectionDistanceTopToTop - paddingTop < 0 && !fixedSectionDisplay) {
-        node.firstElementChild.style.display = 'initial';
-      }
+      // if (sectionDistanceTopToTop - paddingTop < 0 && !fixedSectionDisplay) {
+      //   node.firstElementChild.style.display = 'initial';
+      // }
       if (innerScrollSectionTopToTop <= paddingTop && innerScrollSectionTopToTop > 0) {
         const opacity = (paddingTop - innerScrollSectionTopToTop) / paddingTop;
         node.firstElementChild.style.opacity = opacity;
+        node.firstElementChild.style.display = 'initial';
       } else if (sectionDistanceBottomToTop <= paddingBottom && sectionDistanceBottomToTop >= 0) {
         const opacity = 1 - ((paddingBottom - sectionDistanceBottomToTop) / paddingBottom);
         node.firstElementChild.style.opacity = opacity;
+        node.firstElementChild.style.display = 'initial';
       } else if (innerScrollSectionBottomToTop >= 0 && innerScrollSectionTopToTop <=0) {
         node.firstElementChild.style.opacity = 1;
+        node.firstElementChild.style.display = 'initial';
       } else if (sectionDistanceBottomToTop <= 0 || sectionDistanceTopToTop >= 0) {
         node.firstElementChild.style.opacity = 0;
+        node.firstElementChild.style.display = 'none';
       }
     });
     this.currentScrollTop = window.scrollY;
@@ -152,15 +160,17 @@ class IntermittentScrollLR extends Component {
 
   render() {
     return (
-      <Container
-        ref={node => {
-          if(node && !this.container) {
-            this.container = node;
-          }
-        }}
-      >
-        {this._renderSections()}
-      </Container>
+      <PaddingContainer>
+        <Container
+          ref={node => {
+            if(node && !this.container) {
+              this.container = node;
+            }
+          }}
+        >
+          {this._renderSections()}
+        </Container>
+      </PaddingContainer>
     );
   }
 }

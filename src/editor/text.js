@@ -15,7 +15,7 @@ const vssData = [
   }
 ];
 
-const SectionOne = {
+const sectionOne = {
   title: '這是標題這是標題這是標題<br/><br/>這是標題',
   contents: [
     '這是第一段，這是第一段，這是第一段，這是第一段，<br/><br/>這是第一段，這是第一段，這是第一段，這是第一段，這是第一段。',
@@ -45,8 +45,47 @@ const ISLRData = [
   }
 ]
 
+// title
+// textWithoutAnnotatoin
+// textWithAnnotatoin -> { plainText, annotation }
+
+const contentProto = [
+  {
+    type: 'title',
+    text: '這是標題這是標題<br/><br/>這是標題第二行'
+  },
+  {
+    type: 'textWithoutAnotatoin',
+    content: '「製毒村」被消滅之後，逐利的販毒集團逐漸轉往周遭國家力量無法企及的地點，也就是長年遭到地方反抗軍把持的緬甸撣邦山中。「那是一個沒有風險的地方，你愛做多少就做多少，幾百公斤、幾噸的量都出得來⋯⋯等於是有當地政府（地方反抗軍）保護你。現在的狀況比在中國大陸更嚴重，產製等於是無法可管，」單培祥點出了這個關鍵性的改變 ，改變也翻轉了亞太毒品市場。',
+  },
+  {
+    type: 'textWithoutAnnotatoin',
+    content: '「製毒村」被消滅之後，逐利的販毒集團逐漸轉往周遭國家力量無法企及的地點，也就是長年遭到地方反抗軍把持的緬甸撣邦山中。「那是一個沒有風險的地方，你愛做多少就做多少，幾百公斤、幾噸的量都出得來⋯⋯等於是有當地政府（地方反抗軍）保護你。現在的狀況比在中國大陸更嚴重，產製等於是無法可管，」單培祥點出了這個關鍵性的改變 ，改變也翻轉了亞太毒品市場。',
+  },
+  {
+    type: 'textWithAnnotation',
+    backgroundColor: 'purple',
+    content: [
+      {
+        type: 'plainText',
+        text: `「製毒村」被消滅之後，逐利的販毒集團逐漸轉往周遭國家力量無法企及的地點，也就是長年遭到地方反抗軍把持的緬甸撣邦山中。「那是一個沒有風險的地方，你愛做多少就做多少，幾百公斤、幾噸的量都出得來⋯⋯等於是有當地政府（`,
+      },
+      {
+        type: 'annotation',
+        text: `地方反抗軍`,
+        annotation: '這是annotation拉，這是annotation拉，這是annotation拉，這是annotation拉，這是annotation拉。'
+      },
+      {
+        type: 'plainText',
+        text: `）保護你。現在的狀況比在中國大陸更嚴重，產製等於是無法可管，」單培祥點出了這個關鍵性的改變，而這個改變也翻轉了亞太毒品市場。</span>`,
+      }
+    ],
+  }
+];
+
 export {
   vssData,
-  SectionOne,
+  sectionOne,
   ISLRData,
+  contentProto,
 }

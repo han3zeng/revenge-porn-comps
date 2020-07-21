@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import InnerStickySection from './InnerStickySection';
-import { SectionOne } from '../editor/text';
+import { sectionOne } from '../editor/text';
 import config from '../config';
 
-const { title, contents } = SectionOne;
+const { title, contents } = sectionOne;
 const { breakpoints } = config;
 
 const Container = styled.div`

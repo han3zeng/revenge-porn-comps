@@ -1,19 +1,19 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 import config from '../config';
-
-const { breakpoints } = config;
-
 import {
   Title,
-  Text,
-  Annotation,
+  TextWithoutAnnotation,
+  TextWithAnnotation,
   Quote,
   Image,
 } from './Provider';
 
+const { breakpoints } = config;
+
 const Container = styled.div`
   max-width: 656px;
+  margin: 0 auto;
   @media(max-width: ${breakpoints.maxTablet}) {
     max-width: 100%;
     width: 100%;
@@ -21,7 +21,7 @@ const Container = styled.div`
   }
 `;
 
-class Content extends Component {
+class Contents extends Component {
   constructor(props) {
     super(props);
   }
@@ -35,33 +35,35 @@ class Content extends Component {
     return data.map((dataElem, index) => {
       const { type } = dataElem;
       if (type === 'title') {
+        return null;
         return (
           <Title
-            data={data}
+            data={dataElem}
           />
         )
-      } else if (type === 'text') {
+      } else if (type === 'textWithoutAnnotatoin') {
+        return null;
         return (
-          <Text
-            data={data}
+          <TextWithoutAnnotation
+            data={dataElem}
           />
         )
-      } else if (type === 'annotation') {
+      } else if (type === 'textWithAnnotation') {
         return (
-          <Annotation
-            data={data}
+          <TextWithAnnotation
+            data={dataElem}
           />
         )
       } else if (type === 'quote') {
         return (
           <Quote
-            data={data}
+            data={dataElem}
           />
         )
       } else if (type === 'image') {
         return (
           <Image
-            data={data}
+            data={dataElem}
           />
         )
       } else {
@@ -73,11 +75,11 @@ class Content extends Component {
 
   render() {
     return (
-      <Fragment>
+      <Container>
         {this._renderContent()}
-      </Fragment>
+      </Container>
     );
   }
 }
 
-export default Content;
+export default Contents;

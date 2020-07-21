@@ -3,9 +3,10 @@ import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import VerticalScrollSlides from './components/VerticalScrollSlides';
 import FadeInHOC from './components/FadeInHOC';
 import SidePicture from './components/SidePicture';
-import { vssData, ISLRData } from './editor/text';
+import { vssData, ISLRData, contentProto } from './editor/text';
 import Landing from './components/Landing';
 import IntermittentScrollLR from './components/IntermittentScrollLR';
+import Contents from './components/Contents';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -51,10 +52,12 @@ function App() {
         <IntermittentScrollLR
           data={ISLRData}
         />
-        <Fake />
-        <VerticalScrollSlides
-          data={vssData}
+        <Contents
+          data={contentProto}
         />
+        {/*<VerticalScrollSlides
+          data={vssData}
+        />*/}
         <Fake />
         <Fake />
         <FadeInHOC>

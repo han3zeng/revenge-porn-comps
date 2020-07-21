@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { getRandomInt, weightedRandomInt, getDimension } from '../utils';
 import _debounce from 'lodash/debounce';
-import { SectionOne } from '../editor/text';
+import { sectionOne } from '../editor/text';
 
 const _ = {
   debounce: _debounce,
@@ -183,8 +183,8 @@ class InnerStickySection extends Component {
     for(let i = 0 ; i < maxNumber ; i++) {
       // const randomNumber = getRandomInt(6);
       const imgUrl = (() => {
-        const target = i % SectionOne.imgs.length;
-        return SectionOne.imgs[target];
+        const target = i % sectionOne.imgs.length;
+        return sectionOne.imgs[target];
       })();
       const Spec = {
         0: shredConfigs[0].weight,
