@@ -52,15 +52,23 @@ const ISLRData = [
 const contentProto = [
   {
     type: 'title',
-    text: '這是標題這是標題<br/><br/>這是標題第二行'
+    text: '這是標題這是標題<br/><br/>這是標題第二行',
+    backgroundColor: 'purple',
+  },
+  {
+    type: 'subtitle',
+    text: '這是副標題這是副標題<br/><br/>這是副標題第二行',
+    backgroundColor: 'purple',
   },
   {
     type: 'textWithoutAnotatoin',
     content: '「製毒村」被消滅之後，逐利的販毒集團逐漸轉往周遭國家力量無法企及的地點，也就是長年遭到地方反抗軍把持的緬甸撣邦山中。「那是一個沒有風險的地方，你愛做多少就做多少，幾百公斤、幾噸的量都出得來⋯⋯等於是有當地政府（地方反抗軍）保護你。現在的狀況比在中國大陸更嚴重，產製等於是無法可管，」單培祥點出了這個關鍵性的改變 ，改變也翻轉了亞太毒品市場。',
+    backgroundColor: 'purple',
   },
   {
     type: 'textWithoutAnnotatoin',
-    content: '「製毒村」被消滅之後，逐利的販毒集團逐漸轉往周遭國家力量無法企及的地點，也就是長年遭到地方反抗軍把持的緬甸撣邦山中。「那是一個沒有風險的地方，你愛做多少就做多少，幾百公斤、幾噸的量都出得來⋯⋯等於是有當地政府（地方反抗軍）保護你。現在的狀況比在中國大陸更嚴重，產製等於是無法可管，」單培祥點出了這個關鍵性的改變 ，改變也翻轉了亞太毒品市場。',
+    content: '<strong>「製毒村」</strong>被消滅之後，逐利的販毒集團逐漸轉往周遭<a href="http://www.google.com" target="_blank">國家力量</a>無法企及的地點，也就是長年遭到地方反抗軍把持的緬甸撣邦山中。「那是一個沒有風險的地方，你愛做多少就做多少，幾百公斤、幾噸的量都出得來⋯⋯等於是有當地政府（地方反抗軍）保護你。現在的狀況比在中國大陸更嚴重，產製等於是無法可管，」單培祥點出了這個關鍵性的改變 ，改變也翻轉了亞太毒品市場。',
+    backgroundColor: 'purple',
   },
   {
     type: 'textWithAnnotation',
@@ -68,7 +76,7 @@ const contentProto = [
     content: [
       {
         type: 'plainText',
-        text: `「製毒村」被消滅之後，逐利的販毒集團逐漸轉往周遭國家力量無法企及的地點，也就是長年遭到地方反抗軍把持的緬甸撣邦山中。「那是一個沒有風險的地方，你愛做多少就做多少，幾百公斤、幾噸的量都出得來⋯⋯等於是有當地政府（`,
+        text: `<strong>「製毒村」</strong>被消滅之後，逐利的販毒集團逐漸轉往周遭國家力量無法企及的地點<a href="http://www.google.com" target="_blank">國家力量</a>，也就是長年遭到地方反抗軍把持的緬甸撣邦山中。「那是一個沒有風險的地方，你愛做多少就做多少，幾百公斤、幾噸的量都出得來⋯⋯等於是有當地政府（`,
       },
       {
         type: 'annotation',
@@ -80,7 +88,20 @@ const contentProto = [
         text: `）保護你。現在的狀況比在中國大陸更嚴重，產製等於是無法可管，」單培祥點出了這個關鍵性的改變，而這個改變也翻轉了亞太毒品市場。</span>`,
       }
     ],
-  }
+  },
+  {
+    type: 'blockquote',
+    text: '<strong>「製毒村」</strong>被消滅之後，逐利的販毒集團逐漸轉往周遭<a href="http://www.google.com" target="_blank">國家力量</a>無法企及的地點，也就是長年遭到地方反抗軍把持的緬甸撣邦山中。「那是一個沒有風險的地方，你愛做多少就做多少，幾百公斤、幾噸的量都出得來⋯⋯等於是有當地政府（地方反抗軍）保護你。現在的狀況比在中國大陸更嚴重，產製等於是無法可管，」單培祥點出了這個關鍵性的改變 ，改變也翻轉了亞太毒品市場。',
+    backgroundColor: 'purple',
+    iconUrl: `${cdnUrlBase}/test-cover-02.jpeg`,
+    title: '韓國瑜  首任被罷免直轄市市長'
+  },
+  {
+    type: 'image',
+    imgUrl: `${cdnUrlBase}/test-cover-02.jpeg`,
+    caption: '這是圖說，圖說喔，這是圖說，圖說喔',
+    backgroundColor: 'purple',
+  },
 ];
 
 export {

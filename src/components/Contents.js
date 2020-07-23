@@ -3,18 +3,20 @@ import styled from 'styled-components';
 import config from '../config';
 import {
   Title,
+  SubTitle,
   TextWithoutAnnotation,
   TextWithAnnotation,
-  Quote,
+  Blockquote,
   Image,
 } from './Provider';
 
 const { breakpoints } = config;
 
 const Container = styled.div`
+  box-sizing: border-box;
   max-width: 656px;
   margin: 0 auto;
-  @media(max-width: ${breakpoints.maxTablet}) {
+  @media(max-width: ${breakpoints.maxTablet}px) {
     max-width: 100%;
     width: 100%;
     padding: 0 16px;
@@ -35,14 +37,18 @@ class Contents extends Component {
     return data.map((dataElem, index) => {
       const { type } = dataElem;
       if (type === 'title') {
-        return null;
         return (
           <Title
             data={dataElem}
           />
         )
+      } else if (type === 'subtitle') {
+        return (
+          <SubTitle
+            data={dataElem}
+          />
+        );
       } else if (type === 'textWithoutAnnotatoin') {
-        return null;
         return (
           <TextWithoutAnnotation
             data={dataElem}
@@ -54,9 +60,9 @@ class Contents extends Component {
             data={dataElem}
           />
         )
-      } else if (type === 'quote') {
+      } else if (type === 'blockquote') {
         return (
-          <Quote
+          <Blockquote
             data={dataElem}
           />
         )
