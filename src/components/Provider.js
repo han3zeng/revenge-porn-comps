@@ -11,6 +11,7 @@ const { breakpoints } = config;
 
 const getHighlightTextColor = props => props.backgroundColor === 'purple' ? '#ECDF6B' : '#48448F';
 const getTextColor = props => props.backgroundColor === 'purple' ? 'white' : '#333333';
+const getUnderlineColor = props => props.backgroundColor === 'purple' ? '#A4965F' : '#807BDE';
 
 function createMarkup(content) {
   return {__html: `${content}`};
@@ -35,17 +36,17 @@ const TextContainer = styled.p`
       color: ${props => getHighlightTextColor(props)};
       font-weight: bold;
       text-decoration: none;
-      border-bottom: 1px solid #A4965F;
+      border-bottom: 1px solid ${props => getUnderlineColor(props)};
     }
     &:active {
       color: ${props => getHighlightTextColor(props)};
       text-decoration: none;
-      border-bottom: 1px solid #A4965F;
+      border-bottom: 1px solid ${props => getUnderlineColor(props)};
     }
     &:visited {
       color: ${props => getHighlightTextColor(props)};
       text-decoration: none;
-      border-bottom: 1px solid #A4965F;
+      border-bottom: 1px solid ${props => getUnderlineColor(props)};
     }
   }
 `;
@@ -261,17 +262,17 @@ const BlockquoteContainer = styled.div`
       color: ${props => getHighlightTextColor(props)};
       font-weight: bold;
       text-decoration: none;
-      border-bottom: 1px solid #A4965F;
+      border-bottom: 1px solid ${props => getUnderlineColor(props)};
     }
     &:active {
       color: ${props => getHighlightTextColor(props)};
       text-decoration: none;
-      border-bottom: 1px solid #A4965F;
+      border-bottom: 1px solid ${props => getUnderlineColor(props)};
     }
     &:visited {
       color: ${props => getHighlightTextColor(props)};
       text-decoration: none;
-      border-bottom: 1px solid #A4965F;
+      border-bottom: 1px solid ${props => getUnderlineColor(props)};
     }
   }
   @media(max-width: ${breakpoints.maxTablet}px) {

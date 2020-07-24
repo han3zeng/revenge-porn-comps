@@ -16,6 +16,7 @@ const Container = styled.div`
   box-sizing: border-box;
   max-width: 656px;
   margin: 0 auto;
+  background-color: transparent;
   @media(max-width: ${breakpoints.maxTablet}px) {
     max-width: 100%;
     width: 100%;
@@ -33,9 +34,12 @@ class Contents extends Component {
   }
 
   _renderContent() {
-    const { data } = this.props;
+    const { data, backgroundColor } = this.props;
     return data.map((dataElem, index) => {
       const { type } = dataElem;
+      if (backgroundColor) {
+        dataElem.backgroundColor = backgroundColor;
+      }
       if (type === 'title') {
         return (
           <Title

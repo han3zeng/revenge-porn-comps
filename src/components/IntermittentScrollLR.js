@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 import config from '../config';
 
-const { breakpoints } = config;
+const { breakpoints, textMaxWidth } = config;
 
 function createMarkup(content) {
   return {__html: `${content}`};
@@ -15,12 +15,10 @@ const PaddingContainer = styled.div`
 `;
 
 const Container = styled.div`
-  background-color: ${props => props.theme.purpleBase};
   position: relative;
 `;
 
 const Section = styled.section`
-  background-color: ${props => props.theme.purpleBase};
 `;
 
 const InnerFixedSection = styled.div`
@@ -46,24 +44,24 @@ const ImageWrapper = styled.div`
     object-fit: cover;
   }
   @media(max-width: ${breakpoints.maxTablet}px) {
-    width: 100%;
-    height: 375px;
-    top: 0;
-    left: 0;
-    transform: initial;
+    width: 93%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 `;
 
 const InnerScrollSection = styled.div`
   position: relative;
-  background: rgba(242, 242, 242, 0.85);
+  background: #F2F2F2;
+  box-sizing: border-box;
   z-index: 2;
   text-align: center;
   padding: 16px;
-  max-width: 400px;
+  max-width: ${textMaxWidth}px;
   left: calc(50% - ${intersectionInterval}px);
   @media(max-width: ${breakpoints.maxTablet}px) {
-    width: 85%;
+    width: 93%;
     left: 50%;
     transform: translateX(-50%);
   }

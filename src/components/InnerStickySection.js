@@ -13,7 +13,6 @@ const Container = styled.div`
   top: 0;
   width: 100%;
   height: 100vh;
-  background-color: ${props => props.theme.purpleBase};
   padding-bottom: 20px;
   margin-bottom: 150px;
 `;

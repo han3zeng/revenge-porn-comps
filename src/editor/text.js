@@ -104,9 +104,27 @@ const contentProto = [
   },
 ];
 
+const navSection = [{
+    text: '罷免懶人包',
+    disable: false,
+    href: 'www.google.com',
+  },
+  {
+    text: '開票結果',
+    disable: false,
+    href: 'www.google.com',
+  },
+  {
+    text: '延伸閱讀',
+    disable: false,
+    href: 'www.google.com',
+  },
+]
+
 export {
   vssData,
   sectionOne,
   ISLRData,
   contentProto,
+  navSection,
 }

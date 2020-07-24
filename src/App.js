@@ -7,11 +7,12 @@ import { vssData, ISLRData, contentProto } from './editor/text';
 import Landing from './components/Landing';
 import IntermittentScrollLR from './components/IntermittentScrollLR';
 import Contents from './components/Contents';
+import NavbarController from './components/NavbarController';
 
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
-    background-color: ${props => props.theme.purpleBase};
+    background: linear-gradient(${props => props.theme.purpleBase} 0%, 70%, ${props => props.theme.yellowBase} 80%);
     font-family: ${props => props.theme.fontFamily};
   }
 `;
@@ -39,7 +40,8 @@ const FakeWrapper = styled.div`
 `;
 
 const theme = {
-  purpleBase: '#1A183F',
+  purpleBase: '#19173F',
+  yellowBase: '#FDF4D0',
   fontFamily: '"Noto Sans TC", sans-serif',
 };
 
@@ -49,6 +51,7 @@ function App() {
       <ThemeProvider
         theme={theme}
       >
+        <NavbarController />
         <Landing />
         <IntermittentScrollLR
           data={ISLRData}
@@ -56,15 +59,16 @@ function App() {
         <Contents
           data={contentProto}
         />
-        {/*<VerticalScrollSlides
+        <VerticalScrollSlides
           data={vssData}
-        />*/}
-        <Fake />
-        <Fake />
-        <FadeInHOC>
+        />
+        <Contents
+          data={contentProto}
+          backgroundColor={'yellow'}
+        />
+        {/*<FadeInHOC>
           <FakeFadeInContent />
-        </FadeInHOC>
-        <Fake />
+        </FadeInHOC>*/}
         <FakeWrapper>
           <div>
             qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf
@@ -83,7 +87,6 @@ function App() {
             caption="this is testing caption"
           />
         </FakeWrapper>
-        <Fake />
         <GlobalStyle />
       </ThemeProvider>
     </Fragment>
