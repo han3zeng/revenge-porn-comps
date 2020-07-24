@@ -13,7 +13,7 @@ class NavbarController extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ifOpen: true,
+      ifOpen: false,
     }
     this.openMobileMenu = this._openMobileMenu.bind(this);
     this.closeMobileMenu = this._closeMobileMenu.bind(this);

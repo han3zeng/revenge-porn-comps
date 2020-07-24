@@ -121,10 +121,91 @@ const navSection = [{
   },
 ]
 
+const relatedData = [{
+    title: '武漢肺炎專題／戰役實錄',
+    date: '2020/02/11',
+    category: '疫情通報',
+    imgUrl: 'https://news.pts.org.tw/home_images/banner/1.jpg?v=1584439203',
+    externalLink: 'https://newmedia.pts.org.tw/chinaoutbreak/',
+  },
+  {
+    title: '武漢封城30天，全中國開城復工待何時？',
+    date: '2020/02/21',
+    category: '全球公衛',
+    imgUrl: 'https://newmedia.pts.org.tw/sub-chinaoutbreak/figure.jpg',
+    externalLink: 'https://newmedia.pts.org.tw/sub-chinaoutbreak/',
+  },
+  {
+    title: '報導側記／中國權威發布的疫情數據迷霧',
+    date: '2020/03/04',
+    category: '疫情通報',
+    imgUrl: 'https://server.newslab.pts.org.tw/uploads/News/175/5e61ba1be7d2e.jpg',
+    externalLink: 'https://newmedia.pts.org.tw/sub-chinaoutbreak-2-/',
+  },
+  {
+    title: '【P觀點】武漢肺炎疫情下，待回京的台灣中醫師',
+    date: '2020/02/27',
+    category: '國內防疫',
+    imgUrl: 'https://img.youtube.com/vi/3f0t4rxVkuA/hqdefault.jpg',
+    externalLink: 'https://newslab.pts.org.tw/video/78',
+  },
+  {
+    title: '【P觀點】病毒專家何美鄉，武漢肺炎大解密',
+    date: '2020/02/20',
+    category: '國內防疫',
+    imgUrl: 'https://img.youtube.com/vi/-2xCFHneIMI/0.jpg',
+    externalLink: 'https://newslab.pts.org.tw/video/77',
+  },
+  {
+    title: '【疫與記憶之四】義大利篇：我在佛羅倫斯，經歷世紀之疫',
+    date: '2020/03/13',
+    category: '全球公衛',
+    imgUrl: 'https://server.newslab.pts.org.tw/uploads/News/180/5e6b97bae9e4e.jpg',
+    externalLink: 'https://newslab.pts.org.tw/news/180',
+  },
+];
+
+const people = [
+  {
+    name: '卓冠齊',
+    title: '製作人',
+  },
+  {
+    name: '吳亭霓、卓冠齊',
+    title: '企劃',
+  },
+  {
+    name: '簡毅慧、林建勳、吳亭霓、Nagao Kunaw',
+    title: '編輯',
+  },
+  {
+    name: '曾芯敏',
+    title: '設計',
+  },
+  {
+    name: '曾涵郁、陳柏偉',
+    title: '工程',
+  },
+  {
+    name: 'Nagao Kunaw',
+    title: '社群',
+  }
+];
+
+
+const footerSection = {
+  fullPageImageUrl: `${cdnUrlBase}/test-cover-02.jpeg`,
+  related: relatedData,
+  people,
+  dataDescription: '這是資料描述，這是資料描述，這是資料描述，這是資料描述，這是資料描述，這是資料描述。',
+}
+
 export {
   vssData,
   sectionOne,
   ISLRData,
   contentProto,
   navSection,
+  footerSection,
+  relatedData,
 }

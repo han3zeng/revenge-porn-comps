@@ -8,6 +8,7 @@ import Landing from './components/Landing';
 import IntermittentScrollLR from './components/IntermittentScrollLR';
 import Contents from './components/Contents';
 import NavbarController from './components/NavbarController';
+import Footer from './components/Footer';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -66,10 +67,11 @@ function App() {
           data={contentProto}
           backgroundColor={'yellow'}
         />
+        <Footer />
         {/*<FadeInHOC>
           <FakeFadeInContent />
         </FadeInHOC>*/}
-        <FakeWrapper>
+        {/*<FakeWrapper>
           <div>
             qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf qwef wqef wqe fqewf
           </div>
@@ -86,7 +88,7 @@ function App() {
             imgUrl="https://d3prffu8f9hpuw.cloudfront.net/revenge-porn/test-cover-02.jpeg"
             caption="this is testing caption"
           />
-        </FakeWrapper>
+        </FakeWrapper>*/}
         <GlobalStyle />
       </ThemeProvider>
     </Fragment>
