@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.js": "/revenge-porn/static/js/main.889c6ef9.chunk.js",
+    "main.js.map": "/revenge-porn/static/js/main.889c6ef9.chunk.js.map",
+    "runtime-main.js": "/revenge-porn/static/js/runtime-main.d58745ae.js",
+    "runtime-main.js.map": "/revenge-porn/static/js/runtime-main.d58745ae.js.map",
+    "static/js/2.bd6a5d1b.chunk.js": "/revenge-porn/static/js/2.bd6a5d1b.chunk.js",
+    "static/js/2.bd6a5d1b.chunk.js.map": "/revenge-porn/static/js/2.bd6a5d1b.chunk.js.map",
+    "index.html": "/revenge-porn/index.html",
+    "precache-manifest.3a2c0e7027dd2c44a548072c7708c60d.js": "/revenge-porn/precache-manifest.3a2c0e7027dd2c44a548072c7708c60d.js",
+    "service-worker.js": "/revenge-porn/service-worker.js",
+    "static/js/2.bd6a5d1b.chunk.js.LICENSE.txt": "/revenge-porn/static/js/2.bd6a5d1b.chunk.js.LICENSE.txt",
+    "static/media/annotation-active-dark.svg": "/revenge-porn/static/media/annotation-active-dark.3eab666b.svg",
+    "static/media/annotation-active-light.svg": "/revenge-porn/static/media/annotation-active-light.34c5c386.svg",
+    "static/media/annotation-default-dark.svg": "/revenge-porn/static/media/annotation-default-dark.80a0dc67.svg",
+    "static/media/annotation-default-light.svg": "/revenge-porn/static/media/annotation-default-light.63f484cf.svg",
+    "static/media/hamburger.svg": "/revenge-porn/static/media/hamburger.ee6aaa0a.svg",
+    "static/media/nav-cross.svg": "/revenge-porn/static/media/nav-cross.5a3a4b3c.svg",
+    "static/media/psharp-logo-footer.svg": "/revenge-porn/static/media/psharp-logo-footer.5843d379.svg",
+    "static/media/psharp-logo.svg": "/revenge-porn/static/media/psharp-logo.340ef6c6.svg",
+    "static/media/pts-logo-footer.svg": "/revenge-porn/static/media/pts-logo-footer.199869ff.svg",
+    "static/media/share-fb.svg": "/revenge-porn/static/media/share-fb.cf3ce7f3.svg",
+    "static/media/share-line.svg": "/revenge-porn/static/media/share-line.4afdff51.svg",
+    "static/media/user-report-icon.svg": "/revenge-porn/static/media/user-report-icon.f36cc1cc.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d58745ae.js",
+    "static/js/2.bd6a5d1b.chunk.js",
+    "static/js/main.889c6ef9.chunk.js"
+  ]
+}
