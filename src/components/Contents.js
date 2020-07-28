@@ -9,6 +9,7 @@ import {
   Blockquote,
   Image,
 } from './Provider';
+import SidePicture from './SidePicture';
 
 const { breakpoints } = config;
 
@@ -34,7 +35,7 @@ class Contents extends Component {
   }
 
   _renderContent() {
-    const { data, backgroundColor } = this.props;
+    const { data, backgroundColor, openSidePicturePopup } = this.props;
     return data.map((dataElem, index) => {
       const { type } = dataElem;
       if (backgroundColor) {
@@ -76,6 +77,17 @@ class Contents extends Component {
             data={dataElem}
           />
         )
+      } else if (type === 'sidePicture') {
+        const { imgUrl, sidePictureType, id } = dataElem;
+        return (
+          <SidePicture
+            type={sidePictureType}
+            imgUrl={imgUrl}
+            id={id}
+            caption="this is testing caption"
+            openSidePicturePopup={openSidePicturePopup}
+          />
+        );
       } else {
         return null;
       }

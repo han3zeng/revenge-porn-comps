@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import closeIcon from '../assets/nav-cross.png';
+import closeIcon from '../assets/nav-cross.svg';
 
 
 const Container = styled.div`
@@ -19,7 +19,7 @@ const DarkArea = styled.div`
   left: 0;
   right: 0;
   top: 0;
-  background-color: rgba(0,0,0,.3);
+  background-color: #575757;
   transform: translateZ(0);
   transition: opacity .2s linear;
   opacity: ${props => props.ifOpen ? '1' : '0'};

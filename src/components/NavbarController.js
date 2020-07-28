@@ -25,7 +25,6 @@ class NavbarController extends Component {
     })
     if (document) {
       document.body.style.overflow = 'hidden';
-      document.body.style.position = 'fixed';
     }
   }
 
@@ -48,10 +47,6 @@ class NavbarController extends Component {
         <MobileMenu
           closeMobileMenu={this.closeMobileMenu}
           ifOpen={ifOpen}
-        />
-        <Mask
-          ifOpen={ifOpen}
-          closeMobileMenu={this.closeMobileMenu}
         />
       </Container>
     );

@@ -114,6 +114,7 @@ const Navbar = memo(({ openMobileMenu }) => {
           href={href}
           target="_blank"
           rel="noopener noreferrer"
+          key={`nav-item-${index}`}
         >
           {text}
         </a>

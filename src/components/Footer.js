@@ -4,8 +4,12 @@ import { footerSection } from '../editor/text';
 import People from './People';
 import Related from './Related';
 import config from '../config';
+import { UserReport } from './Provider';
+import PsharpLogoSrc from '../assets/psharp-logo-footer.svg';
+import PTSLogoSrc from '../assets/pts-logo-footer.svg';
 
-const { breakpoints } = config;
+
+const { breakpoints, userReportUrl } = config;
 
 const { fullPageImageUrl, related, people, dataDescription } = footerSection;
 
@@ -59,6 +63,25 @@ const DataContainer = styled.div`
   }
 `;
 
+const CopyRight = styled.div`
+  dispaly: flex;
+  flex-direction: column;
+  margin-top: 64px;
+  > div {
+    display: flex;
+    justify-content: center;
+    > img:first-child {
+      margin-right: 25px;
+    }
+  }
+  > div:last-child {
+    margin-top: 16px;
+    font-size: 12px;
+    color: #333333;
+  }
+`;
+
+const copyRightText = 'Public Television Service Foundation.All Rights Reserved.';
 
 class Footer extends Component {
   constructor(props) {
@@ -90,6 +113,18 @@ class Footer extends Component {
             <div>數據來源與研究方法</div>
             <div>{dataDescription}</div>
           </DataContainer>
+          <UserReport
+            targetUrl={userReportUrl}
+          />
+          <CopyRight>
+            <div>
+              <img src={PTSLogoSrc} />
+              <img src={PsharpLogoSrc} />
+            </div>
+            <div>
+              {copyRightText}
+            </div>
+          </CopyRight>
         </ContentSection>
       </Container>
     );

@@ -206,6 +206,7 @@ class InnerStickySection extends Component {
       result.push((
         <Shred
           id={`shred-${i}`}
+          key={`shred-${i}`}
           style={{
             width: `${shredConfig.width}px`,
             height: `${shredConfig.height}px`,

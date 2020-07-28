@@ -2,22 +2,26 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { fadeInOpacity } from '../utils/animations';
 import config from '../config';
+import arrowIconSrc from '../assets/user-report-icon.svg';
+
 const { breakpoints } = config;
 
-const imageWidth = 110;
-const imageHeight = 164;
+const imageWidth = 152;
+const imageHeight = 246;
 const gap = 20;
 
 const Container = styled.div`
   position: relative;
   opacity: 0;
   animation: ${props => props.fadeIn ? css`${fadeInOpacity} 0.3s linear forwards` : 'none'};
+  cursor: poinetr;
   @media(max-width: ${breakpoints.maxTablet}px) {
     display: none;
   }
 `;
 
 const ImageWrapperBase = styled.div`
+  cursor: pointer;
   position: absolute;
   width: ${imageWidth}px;
   height: ${imageHeight}px;
@@ -27,7 +31,7 @@ const ImageWrapperBase = styled.div`
     height: 100%;
     object-fit: cover;
   }
-`
+`;
 
 const ImageRight = styled(ImageWrapperBase)`
   right: -${imageWidth}px;
@@ -35,6 +39,16 @@ const ImageRight = styled(ImageWrapperBase)`
 
 const ImageLeft = styled(ImageWrapperBase)`
   left: -${gap + imageWidth}px;
+`;
+
+const BottomRow = styled.div`
+  background-color: #28164E;
+  color: #ECDF6B;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 8px 7px;
 `;
 
 class SidePicture extends React.Component {
@@ -67,24 +81,25 @@ class SidePicture extends React.Component {
   }
 
   _renderContent() {
-    const { type, imgUrl, caption } = this.props;
-    if (type === 'right') {
-      return (
-        <ImageRight>
-          <img
-            src={imgUrl}
-            alt={caption}
-          />
-        </ImageRight>
-      );
-    }
+    const { type, imgUrl, caption, openSidePicturePopup, id } = this.props;
+    const FinalImage = type === 'right' ? ImageRight : ImageLeft;
     return (
-      <ImageLeft>
+      <FinalImage
+        onClick={() => {
+          openSidePicturePopup({
+            sidepictureId: id,
+          });
+        }}
+      >
         <img
           src={imgUrl}
           alt={caption}
         />
-      </ImageLeft>
+        <BottomRow>
+          她的故事
+          <img src={arrowIconSrc} />
+        </BottomRow>
+      </FinalImage>
     );
   }
   render() {

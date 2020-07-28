@@ -5,6 +5,7 @@ import arrowActiveYellow  from '../assets/annotation-active-light.svg';
 import arrowDefaultPurple from '../assets/annotation-default-dark.svg';
 import arrowDefaultYellow from '../assets/annotation-default-light.svg';
 import config from '../config';
+import userReportIcon from '../assets/user-report-icon.svg';
 
 const { breakpoints } = config;
 
@@ -17,7 +18,7 @@ function createMarkup(content) {
   return {__html: `${content}`};
 }
 
-const TextContainer = styled.p`
+const TextContainer = styled.div`
   color: ${props => getTextColor(props)};
   line-height: 180%;
   font-size: 18px;
@@ -154,7 +155,6 @@ class TextWithAnnotation extends Component {
     const { type, backgroundColor, content } = data;
     return content.map((contentElem, index) => {
       const { type, text, annotation } = contentElem;
-
       if (type === 'plainText') {
         return (
           <span
@@ -208,6 +208,7 @@ const TitleContainer = styled.h1`
   box-sizing: border-box;
   line-height: 90%;
   display: flex;
+  margin-top: 80px;
   mark {
     padding: 6px;
     background-color: ${props => getHighlightTextColor(props)};
@@ -221,7 +222,7 @@ const Title = ({ data }) => {
     <TitleContainer
       backgroundColor={backgroundColor}
     >
-      <mark backgroundColor={backgroundColor} dangerouslySetInnerHTML={createMarkup(text)} />
+      <mark dangerouslySetInnerHTML={createMarkup(text)} />
     </TitleContainer>
   );
 }
@@ -370,6 +371,58 @@ const Image = ({ data }) => {
   );
 };
 
+const UserReportContainer = styled.a`
+  border: ${props => props.isMobileMenu ? '1px solid #ECDF6B' : 'none'};
+  background-color: ${props => !props.isMobileMenu ? props.theme.purpleBase : 'transparent'};
+  padding: ${props => props.isMobileMenu ? '22px' : '18px'};;
+  max-width: ${props => props.isMobileMenu ? '300px' : '600px'};
+  width: 95%;
+  margin: ${props => props.isMobileMenu ? '0 auto' : '64px auto 0 auto'};
+  color: #ECDF6B;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  span {
+    margin-right: 16px;
+  }
+  &:hover {
+    color: #ECDF6B;
+    transition: 0.3s;
+  }
+  &:link {
+    color: #ECDF6B;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  &:active {
+    color: #ECDF6B;
+    text-decoration: none;
+  }
+  &:visited {
+    color: #ECDF6B;
+    text-decoration: none;
+  }
+`;
+
+
+const UserReport = ({ targetUrl, isMobileMenu = null}) => {
+  return (
+    <UserReportContainer
+      href={targetUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      isMobileMenu={isMobileMenu}
+    >
+      <span>與記者分享觀後感</span>
+      <img
+        src={userReportIcon}
+      />
+    </UserReportContainer>
+  );
+}
+
 export {
   TextWithAnnotation,
   Image,
@@ -377,4 +430,5 @@ export {
   TextWithoutAnnotation,
   Title,
   SubTitle,
+  UserReport,
 }

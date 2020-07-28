@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { navSection } from '../editor/text';
-import closeIcon from '../assets/nav-cross.png';
+import closeIcon from '../assets/nav-cross.svg';
 import { FacebookShare, LineShare } from './ShareButtons';
 import config from '../config';
-import userReportIcon from '../assets/user-report-icon.svg';
+import { UserReport } from './Provider';
 
 const { userReportUrl } = config;
 
@@ -104,40 +104,6 @@ const Divider = styled.div`
   }
 `;
 
-const UserRrport = styled.a`
-  border: 1px solid #ECDF6B;
-  padding: 22px;
-  max-width: 300px;
-  width: 95%;
-  margin: 0 auto;
-  color: #ECDF6B;
-  font-size: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  span {
-    margin-right: 16px;
-  }
-  &:hover {
-    color: #ECDF6B;
-    transition: 0.3s;
-  }
-  &:link {
-    color: #ECDF6B;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  &:active {
-    color: #ECDF6B;
-    text-decoration: none;
-  }
-  &:visited {
-    color: #ECDF6B;
-    text-decoration: none;
-  }
-`;
-
 
 const MobileMenu = ({ ifOpen, closeMobileMenu }) => {
 
@@ -198,16 +164,10 @@ const MobileMenu = ({ ifOpen, closeMobileMenu }) => {
           type="nav"
         />
       </ShareGroup>
-      <UserRrport
-        href={userReportUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <span>與記者分享觀後感</span>
-        <img
-          src={userReportIcon}
-        />
-      </UserRrport>
+      <UserReport
+        targetUrl={userReportUrl}
+        isMobileMenu
+      />
     </Container>
   )
 }
