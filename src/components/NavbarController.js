@@ -17,6 +17,7 @@ class NavbarController extends Component {
     }
     this.openMobileMenu = this._openMobileMenu.bind(this);
     this.closeMobileMenu = this._closeMobileMenu.bind(this);
+    this.currentScrollY = null;
   }
 
   _openMobileMenu() {
@@ -25,6 +26,8 @@ class NavbarController extends Component {
     })
     if (document) {
       document.body.style.overflow = 'hidden';
+      this.currentScrollY = window.scrollY;
+      document.body.style.position = 'fixed';
     }
   }
 
@@ -34,6 +37,7 @@ class NavbarController extends Component {
     })
     document.body.style.overflow = null;
     document.body.style.position = null;
+    window.scrollTo(0, this.currentScrollY);
   }
 
   render() {

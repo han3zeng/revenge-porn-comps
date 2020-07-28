@@ -4,6 +4,10 @@ import { getRandomInt, weightedRandomInt, getDimension } from '../utils';
 import _debounce from 'lodash/debounce';
 import { sectionOne } from '../editor/text';
 
+const MAX_DESKTOP = 300;
+const MAX_TABLET = 150;
+const MAX_MOBILE = 100;
+
 const _ = {
   debounce: _debounce,
 }
@@ -157,11 +161,11 @@ class InnerStickySection extends Component {
     this.maxNumber = (() => {
       const currentDimensionStatus =  getDimension();
       if (currentDimensionStatus === 'desktop') {
-        return 100;
+        return MAX_DESKTOP;
       } else if (currentDimensionStatus === 'tablet') {
-        return 75;
+        return MAX_TABLET;
       } else {
-        return 50;
+        return MAX_MOBILE;
       }
     })();
     this._paintContent();
@@ -172,11 +176,11 @@ class InnerStickySection extends Component {
     const maxNumber = (() => {
       const currentDimensionStatus =  getDimension();
       if (currentDimensionStatus === 'desktop') {
-        return 100;
+        return MAX_DESKTOP;
       } else if (currentDimensionStatus === 'tablet') {
-        return 75;
+        return MAX_TABLET;
       } else {
-        return 50;
+        return MAX_MOBILE;
       }
     })();
     for(let i = 0 ; i < maxNumber ; i++) {

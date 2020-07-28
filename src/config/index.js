@@ -7,6 +7,7 @@ const breakpoints = {
   maxTablet: '1023',
   minTablet: '768',
   maxMobile: '767',
+  maxiPhone: '414',
 }
 
 const config = {

@@ -9,6 +9,7 @@ import Contents from './components/Contents';
 import NavbarController from './components/NavbarController';
 import Footer from './components/Footer';
 import SidePicturePopup from './components/SidePicturePopup';
+import VictimSectionMobile from './components/VictimSectionMobile';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -56,6 +57,7 @@ class App extends Component {
     this.openSidePicturePopup = this._openSidePicturePopup.bind(this);
     this.closeSidePicturePopup = this._closeSidePicturePopup.bind(this);
     this.increamentTargetId = this._increamentTargetId.bind(this);
+    this.currentScrollY = null;
   }
 
   _increamentTargetId() {
@@ -79,6 +81,8 @@ class App extends Component {
     })
     if (document) {
       document.body.style.overflow = 'hidden';
+      this.currentScrollY = window.scrollY;
+      document.body.style.position = 'fixed';
     }
   }
 
@@ -88,6 +92,7 @@ class App extends Component {
     })
     document.body.style.overflow = null;
     document.body.style.position = null;
+    window.scrollTo(0, this.currentScrollY);
   }
 
   render() {
@@ -113,6 +118,9 @@ class App extends Component {
           <Contents
             data={contentProto}
             backgroundColor={'yellow'}
+            openSidePicturePopup={this.openSidePicturePopup}
+          />
+          <VictimSectionMobile
             openSidePicturePopup={this.openSidePicturePopup}
           />
           <Contents

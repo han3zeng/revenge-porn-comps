@@ -8,8 +8,10 @@ import arrowIconSrc from '../assets/user-report-icon.svg';
 const textPadding = '20px';
 
 const Container = styled.div`
-  padding-bottom: 115px;
+
 `;
+
+const ContentWrapper = styled.div``;
 
 const ContentContainer = styled.div`
   position: fixed;
@@ -19,14 +21,15 @@ const ContentContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   background-color: #F2F2F2;
-  height: 80%;
   width: 97%;
   max-width: 470px;
+  max-height: 85%;
   top: 50%;
   left: 50%;
   padding: 24px;
   transform: translate(-50%, -50%);
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 `;
 
 const Cross = styled.img`
@@ -66,9 +69,6 @@ const NextPersonContainer = styled.div`
   margin: ${props => props.isMobileMenu ? '0 auto' : '64px auto 0 auto'};
   color: #ECDF6B;
   font-size: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
   span {
     font-size: 14px;
@@ -115,6 +115,9 @@ class SidePicturePopup extends Component {
   }
 
   _renderContent() {
+    if (this.contentNode) {
+      this.contentNode.scrollTop = 0;
+    }
     const { ifOpen, closeSidePicturePopup, sidepictureId, increamentTargetId } = this.props;
     if (!ifOpen || sidepictureId === null) {
       return null;
@@ -139,14 +142,7 @@ class SidePicturePopup extends Component {
       </Fragment>
     );
     return (
-      <ContentContainer
-        ifOpen={ifOpen}
-        ref={(node) => {
-          if(node && !this.contentNode) {
-            this.contentNode = node;
-          }
-        }}
-      >
+      <Fragment>
         <Cross
           src={closeIcon}
           alt="hanburgerMenu"
@@ -156,14 +152,23 @@ class SidePicturePopup extends Component {
         <NextPerson
           onClickNext={this.onClickHandler}
         />
-      </ContentContainer>
+      </Fragment>
     );
   }
   render() {
     const { ifOpen, closeSidePicturePopup } = this.props;
     return (
       <Container>
-        {this._renderContent()}
+        <ContentContainer
+          ifOpen={ifOpen}
+          ref={(node) => {
+            if(node && !this.contentNode) {
+              this.contentNode = node;
+            }
+          }}
+        >
+          {this._renderContent()}
+        </ContentContainer>
         <Mask
           ifOpen={ifOpen}
           closeMobileMenu={closeSidePicturePopup}
